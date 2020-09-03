@@ -4,6 +4,7 @@ title: ECE 4960 Fast Robots
 ---
 
 ## About Me
+![Test Image](https://github.com/jw829/ECE4960/tree/master/images/profile.jpg)
 Hello! Emily here.  Welcome to my robot page!  Here are some (fun) facts about me: 
 
 * I'm a senior studying Electrical and Computer Engineering at Cornell
