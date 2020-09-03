@@ -4,7 +4,7 @@ title: ECE 4960 Fast Robots
 ---
 
 ## About Me
-<img src ="images/profile.jpg" width = "100" height = "100">
+<img src ="images/profile.jpg" width = "200">
 
 Hello! Emily here.  Welcome to my robot page!  Here are some (fun) facts about me: 
 
