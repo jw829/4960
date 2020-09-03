@@ -1,4 +1,5 @@
 
 # README
 Emily's website for Fast Robots! 
-[Click Here for the Website] (https://github.com/jw829/ECE4960)
+
+[Click Here for the Website] (https://jw829.github.io/ECE4960/)
