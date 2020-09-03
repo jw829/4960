@@ -3,6 +3,7 @@ layout: page
 title: ECE 4960 Fast Robots
 ---
 
+## About Me
 Hello! Emily here.  Welcome to my robot page!  Here are some (fun) facts about me: 
 
 * I'm a senior studying Electrical and Computer Engineering at Cornell
@@ -10,7 +11,6 @@ Hello! Emily here.  Welcome to my robot page!  Here are some (fun) facts about m
 * I play badminton and tennis 
 * I'm currently learning the guitar as my quarantine hobby (I started with the ukulele in March) and I secretly aspire to be an internet sensation someday
 
-## Setup Guide
 
 
 
