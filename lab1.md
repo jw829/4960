@@ -36,5 +36,7 @@ title: Lab 1 - The Artemis Board
             digitalWrite(LED_BUILTIN, LOW);
             }
 ```
+
 [![BlinkingWhistle](https://youtu.be/KoDkX6vNTrs/0.jpg)](https://youtu.be/KoDkX6vNTrs)
-[![Notpluggedin](https://youtu.be/-92acptAEIU/0.jpg)](https://youtu.be/-92acptAEIU)
+
+[![Notpluggedin](http://img.youtube.com/vi/-92acptAEIU/0.jpg)](https://youtu.be/-92acptAEIU)
