@@ -11,19 +11,19 @@ title: Lab 1 - The Artemis Board
 ### Video and Code Demonstration:
 1. Blink it up: the following video shows the board blinking its builtin LED.
 
-[![Blink it up](http://img.youtube.com/vi/njZcvr3d-II/0.jpg)](https://youtu.be/njZcvr3d-II) 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/njZcvr3d-II" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 2. Serial: the following video shows the working Serial port.
 
-[![Serial](http://img.youtube.com/vi/TS8YnWNQZ3k/0.jpg)](https://youtu.be/TS8YnWNQZ3k)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TS8YnWNQZ3k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 3. AnalogRead: the following video shows that the board's temperature increases after hot hair is blown onto it.  
 
-[![AnalogRead](http://img.youtube.com/vi/1eO07-Ztc6g/0.jpg)](https://youtu.be/1eO07-Ztc6g)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1eO07-Ztc6g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 4. MicrophoneOutput: the following video shows that the highest frequency changes as I speak! 
 
-[![MicrophoneOutput](http://img.youtube.com/vi/mEYNIKG4enQ/0.jpg)](https://youtu.be/mEYNIKG4enQ)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mEYNIKG4enQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 5. Whistling: I added a loop in the previous code file to blink the board when it hears a whistle.
 ```arduino
@@ -36,7 +36,9 @@ title: Lab 1 - The Artemis Board
             digitalWrite(LED_BUILTIN, LOW);
             }
 ```
+This video shows that the board blinks when a whistle is detected.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KoDkX6vNTrs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-[![BlinkingWhistle](http://img.youtube.com/vi/KoDkX6vNTrs/0.jpg)](https://youtu.be/KoDkX6vNTrs)
 
-[![Notpluggedin](http://img.youtube.com/vi/-92acptAEIU/0.jpg)](https://youtu.be/-92acptAEIU)
+This video shows that the above still works when the board is unplugged from the computer (using battery).
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-92acptAEIU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
