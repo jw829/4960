@@ -2,7 +2,7 @@
 layout: page
 title: Lab 1 - The Artemis Board
 ---
-
+<img src ="images/artemis.jpg" width = "200">
 ### Parts Needed:
 * 1 x SparkFun RedBoard Artemis Nano
 * 1 x USB A-to-C cable
