@@ -18,12 +18,17 @@ I also had to install bleak on python3 by running python3 -m pip install bleak.
 
 2. Connect to the Artemis Board
 By uploading the provided code, the artemis board blinks the blue LED rapidly and shows this in the serial window: 
-<img src ="images/lab2_arduinosetup.png" width = "400" class="center">
-
+<p align="center">
+    <img src ="images/lab2_arduinosetup.png" width = "400" class="center">
+</p>
 3. Ping your Robot
 In the VM, I ran main.py and was able to get a response from the robot after uncommenting await theRobot.ping().  The round-trip latency is shown in the histogram below.  The average is calculated to be around 150 ms, but most of the data points lie in range (105 - 120) and some in range (170 - 200).  The length of ping can be found in the case PING, where the length is stored in variable l_Rcvd.  After printing this value in the serial monitor, I found that the length is 99 bytes.  To find the average bluetooth transmission rate in bits/sec, I did 99 bytes * (8 bits/1 byte) *(1/0.15s) = 5280 bits/second.  For roundtrip, the average transmission rate is around 10kbits/second.  Compared to the serial transmission rate, which is 115200 bits/second, bluetooth transmission is 10 times faster! 
-<img src ="images/lab2_pinghist.png" width = "400" class="center">
-<img src ="images/lab2_ping.png" width = "400" class="center">
+<p align="center">
+    <img src ="images/lab2_pinghist.png" width = "400" class="center">
+</p>
+<p align="center">
+    <img src ="images/lab2_ping.png" width = "400" class="center">
+</p>
 
 
 4. Request a Float
@@ -34,16 +39,26 @@ res_cmd->command_type = GIVE_FLOAT;
 amdtpsSendData((uint8_t *)res_cmd, sizeof(cmd_type_e) + sizeof(uint8_t) + sizeof(float));
 ```
 The float number pi displays successfully on the screen shown below.  The number displayed isn’t exactly the number I sent over, which means that the bluetooth data transmission can be slightly inaccurate.  
-<img src ="images/lab2_float.png" width = "400" class="center">
+<p align="center">
+    <img src ="images/lab2_float.png" width = "400" class="center">
+</p>
 
 5. Test the Data Rate
 To test the speed and reliability of the bluetooth connection, I sent 32-bit and 64-bit integers over the dataline.  I first sent a small packet with only two numbers(14 bytes), and I compared its time with the time sending a big packet with 86 bytes.  The small packet consists of a 32-bit number and a 64-bit number.  The large packet consists of a 32-bit number and 10 64-bit numbers, and I used a for loop to store each number into the dataline.  The histograms for each type of packet sent are shown below.  The average time for the 14-byte packet is 10.69 ms, and the average time for the 86-byte packet is 10.72 ms.  Therefore, the time slightly increases with the number of packets sent.  The packet loss for small packets is 51% based on the number of packets sent and the number of packets received, and 90% for large packets.  These numbers are a lot bigger than I expected, so maybe data was being sent too quickly.
-<img src ="images/lab2_14bytehist.png" width = "400" class="center">
-<img src ="images/lab2_84bytehist.png" width = "400" class="center">
+<p align="center">
+    <img src ="images/lab2_14bytehist.png" width = "400" class="center">
+</p>
+<p align="center">
+    <img src ="images/lab2_84bytehist.png" width = "400" class="center">
+</p>
 The transmission of small packets are shown below: 
-<img src ="images/lab2_lesspackets.png" width = "400" class="center">
+<p align="center">
+    <img src ="images/lab2_lesspackets.png" width = "400" class="center">
+</p>
 The transmission or large packets: 
-<img src ="images/lab2_morepackets.png" width = "400" class="center">
+<p align="center">
+    <img src ="images/lab2_morepackets.png" width = "400" class="center">
+</p>
 
 
 In the code below, the commented out section sends over the large packet.  The micros() function tells the time that each packet(numbered by pkcount) is being sent.  In addition, bytestream_active is set to 1 in the case START_BYTESREAM_TX.  The receiving side unpacks the small packet using the code below: 
@@ -101,4 +116,6 @@ Additionally, I added another case in main.py to unpack the IMU data being sent.
         print(unpack("(<fffffffff"), data)
 ```
 The bluetooth receives the data as shown below: 
-<img src ="images/lab2_imu.png" width = "400" class="center">
+<p align="center">
+    <img src ="images/lab2_imu.png" width = "400" class="center">
+</p>
