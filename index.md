@@ -15,6 +15,8 @@ Hello! Emily here.  Welcome to my robot page!  Here are some (fun) facts about m
 
 ## Labs 
 [Lab 1](lab1.md)
+[Lab 2](lab2.md)
+
 
 
 
