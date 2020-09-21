@@ -2,7 +2,7 @@
 layout: page
 title: Lab 2 - Bluetooth
 ---
-## Parts and Files Needed:
+### Parts and Files Needed:
 * 1 x SparkFun RedBoard Artemis Nano
 * 1 x USB A-to-C cable
 * 1 x Bluetooth adapter
@@ -12,7 +12,7 @@ title: Lab 2 - Bluetooth
 ## 1. USB passthrough Bluetooth  
 The bluetooth module we used in the lab is USB_BT4LE.  In order to set up the port in VM, I downloaded the VirtualBox extension pack and set the USB port to USB 2.0.  I also had to disable the adapter on my host computer so it would run in VM.  I selected the bluetooth device in VM by going to device -> USB -> [device name].  When selected, running lsusb in the terminal should show the connected bluetooth device: 
 <p align="center">
-    <img src ="images/lab2_bluetoothsetup.png" width = "400">
+    <img src ="images/lab2_bluetoothsetup.png" width = "600">
 </p>
 I also had to install bleak on python3 by running python3 -m pip install bleak.
 
@@ -20,17 +20,17 @@ I also had to install bleak on python3 by running python3 -m pip install bleak.
 ## 2. Connect to the Artemis Board
 By uploading the provided code, the artemis board blinks the blue LED rapidly and shows this in the serial window: 
 <p align="center">
-    <img src ="images/lab2_arduinosetup.png" width = "400" class="center">
+    <img src ="images/lab2_arduinosetup.png" width = "600" class="center">
 </p>
 
 
 ## 3. Ping your Robot
 In the VM, I ran main.py and was able to get a response from the robot after uncommenting await theRobot.ping().  The round-trip latency is shown in the histogram below.  The average is calculated to be around 150 ms, but most of the data points lie in range (105 - 120) and some in range (170 - 200).  The length of ping can be found in the case PING, where the length is stored in variable l_Rcvd.  After printing this value in the serial monitor, I found that the length is 99 bytes.  To find the average bluetooth transmission rate in bits/sec, I did 99 bytes * (8 bits/1 byte) *(1/0.15s) = 5280 bits/second.  For roundtrip, the average transmission rate is around 10kbits/second.  Compared to the serial transmission rate, which is 115200 bits/second, bluetooth transmission is 10 times faster! 
 <p align="center">
-    <img src ="images/lab2_pinghist.png" width = "400" class="center">
+    <img src ="images/lab2_pinghist.png" width = "600" class="center">
 </p>
 <p align="center">
-    <img src ="images/lab2_ping.png" width = "400" class="center">
+    <img src ="images/lab2_ping.png" width = "600" class="center">
 </p>
 
 
@@ -43,25 +43,25 @@ amdtpsSendData((uint8_t *)res_cmd, sizeof(cmd_type_e) + sizeof(uint8_t) + sizeof
 ```
 The float number pi displays successfully on the screen shown below.  The number displayed isn’t exactly the number I sent over, which means that the bluetooth data transmission can be slightly inaccurate.  
 <p align="center">
-    <img src ="images/lab2_float.png" width = "400" class="center">
+    <img src ="images/lab2_float.png" width = "600" class="center">
 </p>
 
 
 ## 5. Test the Data Rate
 To test the speed and reliability of the bluetooth connection, I sent 32-bit and 64-bit integers over the dataline.  I first sent a small packet with only two numbers(14 bytes), and I compared its time with the time sending a big packet with 86 bytes.  The small packet consists of a 32-bit number and a 64-bit number.  The large packet consists of a 32-bit number and 10 64-bit numbers, and I used a for loop to store each number into the dataline.  The histograms for each type of packet sent are shown below.  The average time for the 14-byte packet is 10.69 ms, and the average time for the 86-byte packet is 10.72 ms.  Therefore, the time slightly increases with the number of packets sent.  The packet loss for small packets is 51% based on the number of packets sent and the number of packets received, and 90% for large packets.  These numbers are a lot bigger than I expected, so maybe data was being sent too quickly.
 <p align="center">
-    <img src ="images/lab2_14bytehist.png" width = "400" class="center">
+    <img src ="images/lab2_14bytehist.png" width = "600" class="center">
 </p>
 <p align="center">
-    <img src ="images/lab2_86bytehist.png" width = "400" class="center">
+    <img src ="images/lab2_86bytehist.png" width = "600" class="center">
 </p>
 The transmission of small packets are shown below: 
 <p align="center">
-    <img src ="images/lab2_lesspackets.png" width = "400" class="center">
+    <img src ="images/lab2_lesspackets.png" width = "600" class="center">
 </p>
 The transmission or large packets: 
 <p align="center">
-    <img src ="images/lab2_morepackets.png" width = "400" class="center">
+    <img src ="images/lab2_morepackets.png" width = "600" class="center">
 </p>
 
 
@@ -121,5 +121,5 @@ Additionally, I added another case in main.py to unpack the IMU data being sent.
 ```
 The bluetooth receives the data as shown below: 
 <p align="center">
-    <img src ="images/lab2_imu.png" width = "400" class="center">
+    <img src ="images/lab2_imu.png" width = "600" class="center">
 </p>
