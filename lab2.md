@@ -11,7 +11,9 @@ title: Lab 2 - Bluetooth
 ### Tasks:
 1. USB passthrough Bluetooth  
 The bluetooth module we used in the lab is USB_BT4LE.  In order to set up the port in VM, I downloaded the VirtualBox extension pack and set the USB port to USB 2.0.  I also had to disable the adapter on my host computer so it would run in VM.  I selected the bluetooth device in VM by going to device -> USB -> [device name].  When selected, running lsusb in the terminal should show the connected bluetooth device: 
-<p align="center"><img src ="images/lab2_bluetoothsetup.png" width = "400"><\p>
+<p align="center">
+    <img src ="images/lab2_bluetoothsetup.png" width = "400">
+</p>
 I also had to install bleak on python3 by running python3 -m pip install bleak.
 
 2. Connect to the Artemis Board
