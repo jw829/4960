@@ -80,3 +80,23 @@ if (bytestream_active)
     }
 
 ```
+
+6. Additional Command Framework
+In order to support lab 6 where we have to send IMU data, I created two more commands in commands.h: REQ_IMU and GIVE_IMU.  The IMU data consists of 9 float numbers.  The code is shown below.  I put in 9 float numbers (all are 3.14) in the dataline.
+```c
+case REQ_IMU:
+            Serial.println("Going to send 9 floats as IMU message");
+            res_cmd->command_type = GIVE_IMU;
+            for (int i = 0; i<9; i++){
+              memcpy(res_cmd->data+4*i, &pi, 4); //float is 4 byte long
+              }
+            amdtpsSendData((uint8_t *)res_cmd, sizeof(cmd_type_e) + sizeof(uint8_t) + 9*sizeof(float));
+            break;
+```
+Additionally, I added another case in main.py to unpack the IMU data being sent.  Since there are 9 float numbers, the unpack format is "fffffffff".
+```c
+    if (code == Commands.GIVE_IMU.value):
+        print(unpack("(<fffffffff"), data)
+```
+The bluetooth receives the data as shown below: 
+<img src ="images/lab2_imu.jpg" width = "200">
