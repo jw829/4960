@@ -12,7 +12,7 @@ title: Lab 3 - RC Car
 * Different types of surfaces for testing
 
 
-## Characterizing the RC Car:
+## Characterizing the RC Car (collaborated with Katie and Jade):
 ### 1. Basic Properties
 * Dimension: 5.5 in x 6.25 in x 4.75 in
 * Wheel Diameter: 3 in
