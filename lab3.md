@@ -10,6 +10,7 @@ title: Lab 3 - RC Car
 * 1 x RC Car
 * 2 x Battery Pack
 * Different types of surfaces for testing
+* lab3 basecode 
 
 
 ## Characterizing the RC Car (collaborated with Katie and Jade):
@@ -70,4 +71,27 @@ The car can do many stunts!  It can easily get back on its wheels when it's flip
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/m3y1oS1I_Io" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-        
+## Characerize virtual robot
+### 1. Setting up the virtual environment: 
+The virtual environment is made of three modules: the simulator, the plotter, and the controller.  First, I downloaded the software dependencies and the given base code.  The base code is successfully set up in the terminal: 
+<p align="center">
+    <img src ="images/basecod.png" width = "600">
+</p>
+
+### 2. Testing in the virtual environment: 
+I tested the robot in the virtual environment and had several observations: 
+* There's no maximum and minimum speed; the teleoperation tool will keep increasing/decreasing numbers infinitely.  For example, I tried decreasing the speed and the numbers will go infinitely low.   
+<p align="center">
+    <img src ="images/lab3_minimum_linear_speed.png" width = "600">
+</p>
+
+* When a robot bumps into an obstable, a warning sign shows up and the robot disappears.  I had to restart the window from the terminal for the robot to show up again.
+<p align="center">
+    <img src ="images/lab3_robot_hit_wall.png" width = "600">
+</p>
+
+* When I try to kidnap my robot in the middle of its moving, the robot will follow my mouse but will not respond to any teleoperations after that.  The video is shown below: 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZTwGoTKQXE4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+       
