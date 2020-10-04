@@ -14,7 +14,7 @@ title: Lab 4 - Open Loop Control
 * 1 x Wirecutter 
 
 
-## Manual Open Loop Control of the RC Car
+## Manual Open Loop Control of the RC Car (4a)
 ### 1. Communicating with the Motor Driver
 I used the code from File->Examples->Wire->Example1_wire and checked the I2C address of the motor driver.  The I2C address was found to be 0x5D. 
 <p align="center">
@@ -43,6 +43,9 @@ Originally, the code inside the loop goes through all 34 motors and step through
 ```
 In order to figure out the lower limit for which each motor still turns, I tested them at 40, 30, 25, and 20.  At 40, both motors were able to turn without a starting push.  At 30, both motors can turn, but they need a little push manually.  At 25, motor 1 can turn with a little push but not motor 0.  At 20, both motors weren't able to turn.  A demonstration video is shown below: 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/mAgQ_bf35cc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+I also tested the robot following a straight line in both fast and slow speeds.  For fast speed, I set both the left and right motors to 180.  For slow speed, I set motor 1 to 50 and motor 2 to 60 for calibration.  The robot started with the tapemark in its center, and it's able to land with part of the body overlapping the tape, as demonstrated below:    
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qg_sbzZgqFg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ### 4. Robot Assembly
 After testing the motor driver, I assembled the robot by putting the motor driver inside and routing the connector to the outside of chassis through the hole for the old start buttom.  I used a rubber band because the tape wasn't strong enough to hold them down.
@@ -75,7 +78,7 @@ Here's a video of the robot doing some turns.  Since the floor surface wasn't su
     delay(750);
 ```
 
-## Open Loop Control Of Virtual Robot
+## Open Loop Control Of Virtual Robot (4b)
 Need: 
 * Lab4 codebase
 * Jupyter Notebook
