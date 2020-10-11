@@ -19,7 +19,8 @@ Hello! Emily here.  Welcome to my robot page!  Here are some (fun) facts about m
 [Lab 3](lab3.md)
 [Lab 4](lab4.md)
 [Lab 5](lab5.md)
-)
+
+
 
 
 
