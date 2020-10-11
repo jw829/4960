@@ -46,7 +46,7 @@ I measured the intensity data at two different times: 4pm and 8pm.  The mappings
 The sensor actually takes a while to update the values.  It takes approximately 4 seconds to update the intensity values when I moved the object from 0 to 20cm.  The values in the Serial monitor updates every 10ms.  
 
 ### 3. Testing the Time of Flight Sensor 
-I firsted downloaded the SparkFun VL53L1X laser distance sensor library onto the arduino.  I then used the same method as above to find the I2C address for the ToF sensor, which turns out to be 0x29 (datasheet says 0x52 as default).  It's possible that 0x29 is taken by some other device or the current address has been changed.  
+I firsted downloaded the SparkFun VL53L1X laser distance sensor library onto the arduino.  I then used the same method as above to find the I2C address for the ToF sensor, which turns out to be 0x29 (datasheet says 0x52 as default).  This is because I2C addresses are only 7 bits long, so the LSB is not part of the address.  
 I then calibrated the sensor using Example7_Calibration and the piece of grey target from the kit.  The setup is shown below: 
 <p align="center">
     <img src ="images/lab5_distancecallibration.jpg" width = "600">
@@ -70,6 +70,16 @@ I tested 8 feet of distance at two different times, and the accuracy graph is sh
 <p align="center">
     <img src ="images/lab5_distancetesting.png" width = "600">
 </p>
+I also calculated the time it takes for the ToF sensor to read the values using code below: 
+```c
+  long startTime = millis();
+  int distance = distanceSensor.getDistance(); //Get the result of the measurement from the sensor
+  long endTime = millis();
+```
+
+* Reading value: ~1 ms
+* ToF Ranging (without Stop Ranging): 1.62 ms
+* ToF Ranging (with Stop ranging): 2.01 ms
 
 ### 4. Robot Obstacle Avoidance
 The goal is to make the robot run without hitting any obstacles.  I first mounted the sensors onto the robot as in the instructions.  The assembled robot is shown below: 
