@@ -39,9 +39,15 @@ I then tested the proximity sensor using Example4_AllReadings.  The setup is sho
 <p align="center">
     <img src ="images/lab5_proximitytest.jpg" width = "600">
 </p>
-I measured the intensity data at two different times: 4pm and 8pm.  The mappings are shown below (using a blue sticky note pad as the obstacle).  I also tried using a red box, and the readings are pretty much the same as the blue sticky note pad.  
+I measured the intensity data at two different times: 4pm and 8pm; I also used both the blue sticky note and a red box as my subjects.  The mappings are shown below.  
 <p align="center">
     <img src ="images/lab5_proximitygraph.png" width = "600">
+</p>
+<p align="center">
+    <img src ="images/lab5_ambientlight.png" width = "600">
+</p>
+<p align="center">
+    <img src ="images/lab5_whitelevel.png" width = "600">
 </p>
 The sensor actually takes a while to update the values.  It takes approximately 4 seconds to update the intensity values when I moved the object from 0 to 20cm.  The values in the Serial monitor updates every 10ms.  
 
@@ -51,7 +57,7 @@ I then calibrated the sensor using Example7_Calibration and the piece of grey ta
 <p align="center">
     <img src ="images/lab5_distancecallibration.jpg" width = "600">
 </p>
-The code didn't work at first, so I had to modify it a little.  Here's the sensor calibrated successfully: 
+The code didn't work at first, so I had to modify it a little by adding startRanging().  Here's the sensor calibrated successfully: 
 <p align="center">
     <img src ="images/lab5_callibration.png" width = "600">
 </p>
@@ -107,7 +113,7 @@ Need:
 * Jupyter Notebook
 
 The part of the lab needs the Jupyter notebook and the lab5 codebase downloaded via terminal.  After following the instructions on the website,  I changed the kernel to Python 3(it was set to Python 2 before). 
-I realized that the laser beam is very thin, and the robot doesn't detect the wall if its side is almost parallel to the wall when it's moving (shown at the end of the video where it crashes at the corner).  I set the speed to 1 m/s and make the robot turn for a little bit at a time so it doesn't miss another wall while it's turning.  I set the laser distance to 1 m so the robot has enough time to turn (I tried at a smaller distance, and it can't get the side walls as well if it's coming up close on its side).  I also tried 5 m/s and the robot crashes on the second turn due to the speed.  Below is a video of the robot operating at 1 m/s without crashing and collision except for the last one.
+I realized that the laser beam is very thin, and the robot doesn't detect the wall if its side is almost parallel to the wall when it's moving (shown at the end of the video where it crashes at the corner).  I set the speed to 1 m/s and make the robot turn for a little bit at a time so it doesn't miss another wall while it's turning.  I set the laser distance to 1 m so the robot has enough time to turn (I tried at a smaller distance, and it can't get the side walls as well if it's coming up close on its side).  I also tried 5 m/s and the robot crashes on the second turn due to the speed.  I think the more ideal way is to slow down the robot within a certain distance that the laser detects.  Below is a video of the robot operating at 1 m/s with minimum crashing and collision.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dQO1uGPHylE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
