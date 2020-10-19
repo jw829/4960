@@ -60,7 +60,7 @@ The outputs of the pitch at +90 and -90 degrees are shown below:
 </p>
 The robot's roll is tested using a similar method, except it's measuring the robot's tilt standing up on its front wheels/back wheels instead of on its sides: 
 <p align="center">
-    <img src ="images/lab6_roll.jpg" width = "600">
+    <img src ="images/lab6_rollnegpic.jpg" width = "600">
 </p>
 The outputs of the roll at +90 and -90 degrees are shown below: 
 <p align="center">
@@ -70,10 +70,12 @@ The outputs of the roll at +90 and -90 degrees are shown below:
     <img src ="images/lab6_roll_pos90.png" width = "600">
 </p>
 Summary: 
+
 * Pitch (90) = 90.09 
 * Pitch (-90) = -87.68
 * Roll (90) = 88.50
 * Roll (-90) = -89.56
+
 From the summary, we can see that the accelerometer data is pretty accurate both instantaneously and over a period of time.  
 
 Since there's certain noise associated with the pitch and roll, I tried using FFT and plotting the frequency response of the sensor when I tap on it.  I used the FFT python tutorial and modified the code a little bit: 
@@ -169,7 +171,7 @@ Here's the data when the IMU rotates around.  As we can see, the yaw goes from 1
 </p>
 The magnetic north is shown below relative to the IMU on the robot (yaw equals approx -80): 
 <p align="center">
-    <img src ="images/lab6_north.png" width = "600">
+    <img src ="images/lab6_north.jpg" width = "600">
 </p>
 The output is pretty robust to small changes in pitch, with little noise.  
 
@@ -210,26 +212,30 @@ Since the sigma and signal values can't differ by too much, the speed of rotatio
 
 Since I couldn't get the robot to rotate around its own axis (too jerky, sometimes it doesn't move at all), I decided to only do PID on one of its motors.  I used the PID library from arduino and set the input to be the gyroscope Z data and the output to be the motor speed.  I used a LPF on the gyroscope data because it was being noisy.  I used a setpoint of 150, and tested the robot when kp is 1, kp is 2, and kp is 5, which are shown below respectively: 
 <p align="center">
-    <img src ="images/lab6_kp=1alpha=0.05.png" width = "600">
+    <img src ="images/lab6-kp=1alpha=0.05.png" width = "600">
 </p>
 <p align="center">
-    <img src ="images/lab6_kp=2alpha=0.05.png" width = "600">
+    <img src ="images/lab6-kp=2alpha=0.05.png" width = "600">
 </p>
 <p align="center">
-    <img src ="images/lab6_kp=5alpha=0.05.png" width = "600">
+    <img src ="images/lab6-kp=5alpha=0.05.png" width = "600">
 </p>
 As seen from the data above, kp=1 can produce a very smooth, steady rotational speed, but it's much below the setpoint (30 below).  When kp = 2, the speed varies by a little, but the average(~140) is a little closer to the setpoint.  When kp = 5, the rotational speed swings up and down more, but the average turns out to be the setpoint.  
 I also tried changing the ki and kd values, but they created more swings in the rotational speed: 
 <p align="center">
-    <img src ="images/lab6_kp=2alpha=0.05kd=1.png" width = "600">
+    <img src ="images/lab6-kp=2alpha=0.05kd=1.png" width = "600">
 </p>
 <p align="center">
-    <img src ="images/lab6_kp=2ki=1alpha=0.05.png" width = "600">
+    <img src ="images/lab6-kp=2ki=1alpha=0.05.png" width = "600">
 </p>
 I then decided to use only Kp = 2 in my PID design.  Here's a video of the robot going smoothly when Kp = 2 and setpoint = 150: 
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PuQvTH19mMw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 If I use PID control on one wheel, the lowest setpoint speed that it can still turn is 60.  The speed can be much lower because the two wheels aren't trying to go opposite directions.  I also set the other non-PID controlled motor to be 40 just so the other motor can aid the other one.  Here's a video of it going (bc the circle is too big, it's only going half a circle):
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Hqod374Pkc4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 I tried mapping using the ToF sensor when the robot rotates, and here's a screenshot of the sensor data when the robot rotating ~ 5 times.  Here's a picture of the setup and result: 
 <p align="center">
     <img src ="images/lab6_ToFsetup.jpg" width = "600">
