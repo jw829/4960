@@ -199,7 +199,9 @@ Here's a picture of the maximum rotational speed graph.  Since the robot is real
     <img src ="images/lab6_maxrotational speed.png" width = "600">
 </p>
 Here's a video of the robot trying to do the ramp.  It gets super jerky and inconsistent, and I think it might be caused by the strong traction of the wheels.
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lmUiwYuDL_g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Assuming the slowest I can rotate the robot is around 90 dps, and the ToF measurement period to be 40 ms, the robot rotates around 3.6 degrees per reading.  If the robot is initially 0.5 meters away from the wall, then cos(3.6) = x/0.5, x = 0.0026 m, cos(3.6) = 0.5/y, y = 0.50099 m.  The picture below shows the x and y representations: 
 <p align="center">
     <img src ="images/lab6_tofaccuracy.png" width = "600">
